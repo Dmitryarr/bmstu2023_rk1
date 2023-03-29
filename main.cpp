@@ -1,0 +1,60 @@
+#define _CRT_SECURE_NO_WARNINGS
+#define _USE_MATH_DEFINES
+#include <fstream>
+#include <iostream>
+#include <locale>
+#include <Windows.h>
+#include <cmath>
+#include <iomanip>
+#include <cstring>
+#include <cctype>
+#include <vector>
+#include <bitset>
+#include <tuple>
+#include <map>
+#include <list>
+#include <iterator>
+#include "tasks_rk1.h"
+void task2(void) {
+    int b1 = -255, b2 = INT_MAX, b3 = 0;
+    char name[] = "result_task2\0";
+    char* result = convertDecToBin(b1);
+    writeToFile(name[0], result);
+    result = convertDecToBin(b2);
+    writeToFile(name[0], result);
+    result = convertDecToBin(b3);
+    writeToFile(name[0], result);
+}
+void task3(void) {
+    char name[] = "result_task2\0";
+    const char* bin1 = "101010101";
+    char* result1 = convertBinToHex(bin1);
+    writeToFile(name[0], result1);
+    const char* bin2 = "1111111111111111";
+    result1 = convertBinToHex(bin2);
+    writeToFile(name[0], result1);
+    const char* bin3 = "00001";
+    result1 = convertBinToHex(bin3);
+    writeToFile(name[0], result1);
+}
+void task4(void) {
+    int h = 5;
+    buildTree(h);
+}
+
+void task5(void) {
+    float ar[10][5];
+    for (int i = 0; i < 10; i++) {
+        randFill(ar[i], 5);
+    }
+    std::vector<float> avg = averStr2DArray(*ar, 5, 10);
+    writeToFile5(avg);
+}
+
+int main() {
+    task2();
+    task3();
+    task4();
+    task5();
+    return 0;
+}
