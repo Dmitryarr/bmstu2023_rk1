@@ -24,4 +24,17 @@ void buildTree(int height);
 void randFill(float* ar, int N);
 void writeToFile5(std::vector<float> avg);
 std::vector<float> averStr2DArray(const float* ar, int colCount, int rowCount);
+struct Node;
+class LinkedList {
+private:
+    Node* Head;
+    Node* Tail;
+public:
+    LinkedList();
+    ~LinkedList();
+    void push_back(int);
+    void insert(int, int);
+    void writeToFileFromHead();
+    void writeToFileFromTail();
+};
 #endif //UNTITLED_TASKS_RK1_H
