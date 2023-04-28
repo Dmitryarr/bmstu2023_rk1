@@ -50,11 +50,32 @@ void task5(void) {
     std::vector<float> avg = averStr2DArray(*ar, 5, 10);
     writeToFile5(avg);
 }
+int task6() {
+    LinkedList list;
+    for (int i = 0; i < 10; i++)
+        list.push_back(i);
+    list.writeToFileFromHead();
+    list.writeToFileFromTail();
+    return 0;
+}
 
+int task7() {
+    LinkedList list;
+    for (int i = 0; i < 10; i++)
+        list.push_back(i);
+    list.insert(4, 2);
+    list.insert(100, 9);
+    list.insert(-99, 10);
+    list.writeToFileFromHead();
+    list.writeToFileFromTail();
+    return 0;
+}
 int main() {
     task2();
     task3();
     task4();
     task5();
+    task6();
+    task7();
     return 0;
 }
