@@ -129,3 +129,94 @@ std::vector<float> averStr2DArray(const float* ar, int colCount, int rowCount) {
     }
     return average;
 }
+struct Node {
+    Node* next;
+    Node* prev;
+    int nameNode;
+    static int countNodes;
+    Node() {
+        next = nullptr;
+        prev = nullptr;
+        this->nameNode = 0;
+    }
+    Node(int _nameNode) {
+        next = nullptr;
+        prev = nullptr;
+        countNodes++;
+        this->nameNode = _nameNode + 1;
+    }
+    ~Node() {
+        countNodes--;
+    }
+};
+int Node::countNodes = 0;
+LinkedList::LinkedList() {
+    Head = nullptr;
+    Tail = nullptr;
+}
+LinkedList::~LinkedList() {
+    Node::countNodes = 0;
+}
+void LinkedList::push_back(int nameNode) {
+    Node* temp = new Node(nameNode);
+    if (Head == nullptr) {
+        Head = temp;
+        Tail = temp;
+        return;
+    }
+    Tail->next = temp;
+    temp->prev = Tail;
+    Tail = temp;
+}
+void LinkedList::insert(int nameNode, int position) {
+    Node* temp = new Node(nameNode);
+    if (Head == nullptr) {
+        Head = temp;
+        Tail = temp;
+        return;
+    }
+    if (position < 0 || position > Node::countNodes)
+        return;
+    if (position == 1) {
+        temp->next = Head;
+        Head->prev = temp;
+        Head = temp;
+        return;
+    }
+    Node* curr = Head;
+    for (int i = 1; i < position - 1 && curr != nullptr; i++) {
+        curr = curr->next;
+    }
+    if (curr == nullptr) {
+        Tail->next = temp;
+        temp->prev = Tail;
+        Tail = temp;
+        return;
+    }
+    temp->next = curr->next;
+    curr->next->prev = temp;
+    curr->next = temp;
+    temp->prev = curr;
+}
+void LinkedList::writeToFileFromHead() {
+    FILE* fLog;
+    fLog = fopen("result_task6", "a");
+    Node* temp = Head;
+    for (int i = 0; i < Node::countNodes; i++) {
+        fprintf(fLog, "%d\t", temp->nameNode);
+        temp = temp->next;
+    }
+    fprintf(fLog, "\n");
+    fclose(fLog);
+}
+void  LinkedList::writeToFileFromTail() {
+    FILE* fLog;
+    fLog = fopen("result_task6", "a");
+    Node* temp = Tail;
+    for (int i = 0; i < Node::countNodes; i++) {
+        fprintf(fLog, "%d\t", temp->nameNode);
+        temp = temp->prev;
+    }
+    fprintf(fLog, "\n");
+    fclose(fLog);
+}
