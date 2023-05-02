@@ -1,5 +1,5 @@
 #include "tasks_rk1.h"
-void task2(void) {
+void task2() {
     int b1 = -255, b2 = INT_MAX, b3 = 0;
     char name[] = "result_task2\0";
     char* result = convertDecToBin(b1);
@@ -9,7 +9,7 @@ void task2(void) {
     result = convertDecToBin(b3);
     writeToFile(name[0], result);
 }
-void task3(void) {
+void task3() {
     char name[] = "result_task2\0";
     const char* bin1 = "101010101";
     char* result1 = convertBinToHex(bin1);
@@ -21,12 +21,12 @@ void task3(void) {
     result1 = convertBinToHex(bin3);
     writeToFile(name[0], result1);
 }
-void task4(void) {
+void task4() {
     int h = 5;
     buildTree(h);
 }
 
-void task5(void) {
+void task5() {
     float ar[10][5];
     for (int i = 0; i < 10; i++) {
         randFill(ar[i], 5);
