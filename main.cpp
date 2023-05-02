@@ -54,6 +54,18 @@ int task7() {
     list.writeToFileFromTail();
     return 0;
 }
+void task9() {
+    std::string s = "((()))[<<>>]{((()))}";
+    writeToFile9(s, 1);
+    s = "][";
+    writeToFile9(s, 0);
+    s = "[{]}";
+    writeToFile9(s, 0);
+    s = "(()";
+    writeToFile9(s, 0);
+    s = "(<<>{(())}[<<<>{}>()>]>)";
+    writeToFile9(s, 0);
+}
 int main() {
     task2();
     task3();
@@ -61,5 +73,6 @@ int main() {
     task5();
     task6();
     task7();
+    task9();
     return 0;
 }
