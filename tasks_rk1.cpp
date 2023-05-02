@@ -91,7 +91,7 @@ void writeToFile(const char& fileName, const char* strNum) {
 void buildTree(int height) {
     int h = height, k = 0, j = 0;
     for (int i = 0; i < height; i++) {
-        for (; k < h; k++) {
+        for (; k < h-1; k++) {
             std::cout << " ";
         }
         for (; j < 2 * i + 1; j++) {
