@@ -1,19 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
-#define _USE_MATH_DEFINES
-#include <fstream>
-#include <iostream>
-#include <locale>
-#include <Windows.h>
-#include <cmath>
-#include <iomanip>
-#include <cstring>
-#include <cctype>
-#include <vector>
-#include <bitset>
-#include <tuple>
-#include <map>
-#include <list>
-#include <iterator>
 #include "tasks_rk1.h"
 char* convertDecToBin(int number) {
     int arr[64], i = 0, count = 0, ok = 0;
