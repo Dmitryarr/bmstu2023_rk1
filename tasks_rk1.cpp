@@ -62,15 +62,24 @@ char* convertBinToHex(const char* binNum) {
     char* result1 = result;
     return result1;
 }
-void writeToFile(const char& fileName, const char* strNum) {
+void writeToFile(const char* fileName, int writeAppend, const char* strNum) {
     FILE* fLog;
     char str[65] = "";
     strcpy(str, strNum);
-    fLog = fopen(&fileName, "a");
-    for (int i = 0; i < 64; i++)
-        fprintf(fLog, "%c", str[i]);
-    fprintf(fLog, "\n");
-    fclose(fLog);
+    if (writeAppend == 0) {
+        fLog = fopen(fileName, "a");
+        for (int i = 0; i < 64; i++)
+            fprintf(fLog, "%c", str[i]);
+        fprintf(fLog, "\n");
+        fclose(fLog);
+    }
+    if (writeAppend == 1) {
+        fLog = fopen(fileName, "w");
+        for (int i = 0; i < 64; i++)
+            fprintf(fLog, "%c", str[i]);
+        fprintf(fLog, "\n");
+        fclose(fLog);
+    }
 }
 void buildTree(int height) {
     int h = height, k = 0, j = 0;
