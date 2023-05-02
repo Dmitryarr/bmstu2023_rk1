@@ -1,25 +1,25 @@
 #include "tasks_rk1.h"
 void task2() {
+    const char* n = "result_task2";
     int b1 = -255, b2 = INT_MAX, b3 = 0;
-    char name[] = "result_task2\0";
     char* result = convertDecToBin(b1);
-    writeToFile(name[0], result);
+    writeToFile(n, 0, result);
     result = convertDecToBin(b2);
-    writeToFile(name[0], result);
+    writeToFile(n, 0, result);
     result = convertDecToBin(b3);
-    writeToFile(name[0], result);
+    writeToFile(n, 0, result);
 }
 void task3() {
-    char name[] = "result_task2\0";
+    const char* n = "result_task2";
     const char* bin1 = "101010101";
     char* result1 = convertBinToHex(bin1);
-    writeToFile(name[0], result1);
+    writeToFile(n, 0, result1);
     const char* bin2 = "1111111111111111";
     result1 = convertBinToHex(bin2);
-    writeToFile(name[0], result1);
+    writeToFile(n, 0, result1);
     const char* bin3 = "00001";
     result1 = convertBinToHex(bin3);
-    writeToFile(name[0], result1);
+    writeToFile(n, 0, result1);
 }
 void task4() {
     int h = 5;
