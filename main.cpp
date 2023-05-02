@@ -1,18 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
-#define _USE_MATH_DEFINES
-#include <fstream>
-#include <iostream>
-#include <locale>
-#include <cmath>
-#include <iomanip>
-#include <cstring>
-#include <cctype>
-#include <vector>
-#include <bitset>
-#include <tuple>
-#include <map>
-#include <list>
-#include <iterator>
 #include "tasks_rk1.h"
 void task2(void) {
     int b1 = -255, b2 = INT_MAX, b3 = 0;
