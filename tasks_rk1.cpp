@@ -204,3 +204,49 @@ void  LinkedList::writeToFileFromTail() {
     fprintf(fLog, "\n");
     fclose(fLog);
 }
+bool check(std::string s) {
+    std::map<char, char> bracket = { {'[', ']'}, {'(', ')'}, {'{', '}'}, {'<', '>'} };
+    std::map<char, int> bracket_open_or_close = { {'[', 1}, {'(', 1}, {'{', 1}, {'<', 1}, {']', 0}, {')', 0}, {'}', 0}, {'>', 0} };
+    Filo<char> work;
+    char arr;
+    for (int i = 0; i < s.size(); i++) {
+        if (bracket_open_or_close[s[i]] == 1) {
+            work.addToEnd(s[i]);
+        }
+        if (bracket_open_or_close[s[i]] == 0) {
+            work.getFromEnd(arr);
+            if (bracket[arr] != s[i])
+                return false;
+        }
+    }
+    if (work.getFromEnd(arr))
+        return false;
+    return true;
+}
+void writeToFile9(std::string s, int writeAppend) {
+    FILE* fLog;
+    if (writeAppend == 0) {
+        fLog = fopen("result_task9", "a");
+        for (int i = 0; i < s.size(); i++) {
+            fprintf(fLog, "%c", s[i]);
+        }
+        if (check(s) == 1) {
+            fprintf(fLog, " - %s\n", "true");
+            fclose(fLog);
+        }
+        fprintf(fLog, " - %s\n", "false");
+        fclose(fLog);
+    }
+    if (writeAppend == 1) {
+        fLog = fopen("result_task9", "w");
+        for (int i = 0; i < s.size(); i++) {
+            fprintf(fLog, "%c", s[i]);
+        }
+        if (check(s) == 1) {
+            fprintf(fLog, " - %s\n", "true");
+            fclose(fLog);
+        }
+        fprintf(fLog, " - %s\n", "false");
+        fclose(fLog);
+    }
+}
