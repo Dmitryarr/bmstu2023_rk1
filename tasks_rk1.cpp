@@ -1,4 +1,47 @@
 #include "tasks_rk1.h"
+void WorkWithFile::readFromFile(const char* fileName) {
+    dataOfFile = new char[1000] {'\0'};
+    FILE* fLog;
+    fLog = fopen(fileName, "r");
+    for (int i = 0; fscanf(fLog, "%c\t", &dataOfFile[i]) != EOF; i++) {}
+    fclose(fLog);
+    strcat(dataOfFile, "\0");
+}
+void WorkWithFile::prepareTestFile(const char* fileName) {
+    FILE* fLog;
+    fLog = fopen(fileName, "a");
+    int len = 0, number = 0;
+    int arr[1000];
+    while ( dataOfFile[len] != '\0') {
+        arr[len++] = 0;
+    }
+    char character1, character2;
+    while (number++ < len) {
+        if (arr[number] != 1) {
+            character1 = dataOfFile[number];
+            int count = 0;
+            for (int i = 0; i < len; i++) {
+                character2 = dataOfFile[i];
+                if (character1 == character2) {
+                    arr[i] = 1;
+                    count++;
+                }
+            }
+            fprintf(fLog, "[%c]\t[%d]\n", character1, count);
+        }
+    }
+    fclose(fLog);
+}
+WorkWithFile::WorkWithFile() {
+    writeStatInfoToFile("result_task1");
+}
+WorkWithFile::~WorkWithFile() {
+    delete dataOfFile;
+}
+void WorkWithFile::writeStatInfoToFile(const char* outFile) {
+    readFromFile("sourceFile_task1");
+    prepareTestFile(outFile);
+}
 char* convertDecToBin(int number) {
     int arr[64], i = 0, count = 0, ok = 0;
     char result[65] = "";
