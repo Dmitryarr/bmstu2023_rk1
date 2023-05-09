@@ -1,4 +1,7 @@
 #include "tasks_rk1.h"
+void task1() {
+    WorkWithFile go;
+}
 void task2() {
     const char* n = "result_task2";
     int b1 = -255, b2 = INT_MAX, b3 = 0;
@@ -67,6 +70,7 @@ void task9() {
     writeToFile9(s, 0);
 }
 int main() {
+    task1();
     task2();
     task3();
     task4();
