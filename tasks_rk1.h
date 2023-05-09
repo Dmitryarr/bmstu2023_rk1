@@ -17,6 +17,16 @@
 #include <string.h>
 #ifndef UNTITLED_TASKS_RK1_H
 #define UNTITLED_TASKS_RK1_H
+class WorkWithFile {
+private:
+    char* dataOfFile;
+    void readFromFile(const char* fileName);
+    void prepareTestFile(const char* fileName);
+public:
+    WorkWithFile();
+    ~WorkWithFile();
+    void writeStatInfoToFile(const char* outFile);
+};
 char* convertDecToBin(int number);
 char* convertBinToHex(const char* binNum);
 void writeToFile(const char* fileName, int writeAppend, const char* strNum);
