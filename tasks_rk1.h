@@ -3,7 +3,6 @@
 #include <fstream>
 #include <iostream>
 #include <locale>
-#include <Windows.h>
 #include <cmath>
 #include <iomanip>
 #include <cstring>
@@ -29,7 +28,7 @@ public:
 };
 char* convertDecToBin(int number);
 char* convertBinToHex(const char* binNum);
-void writeToFile(const char* fileName, int writeAppend, const char* strNum);
+void writeToFile(const char* fileName, const char* strNum);
 void buildTree(int height);
 void randFill(float* ar, int N);
 void writeToFile5(std::vector<float> avg);
