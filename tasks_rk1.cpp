@@ -76,7 +76,7 @@ char* convertBinToHex(const char* binNum) {
     }
     strcat(ad, binNum);
     strcat(ad, "\0");
-    for (int j = 4; ad[j - 1] != NULL; j += 4) {
+    for (int j = 4; ad[j - 1] != '\0'; j += 4) {
         char arr[5] = "";
         for (int i = 0; i < 4; i++) {
             arr[i] = ad[j - 4 + i];
